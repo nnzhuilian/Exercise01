@@ -6,6 +6,7 @@ public class QueueImplementByArray implements Queue{
 	protected Object a[];
 	protected int front=0;
 	protected int last=-1;
+	protected int count=0;
 	
 	public QueueImplementByArray(){
 		this.Capacity=MAXSIZE;
@@ -22,7 +23,7 @@ public class QueueImplementByArray implements Queue{
 		if((this.getsize())>Capacity) throw new ExceptionQueueFull("栈溢出");
 		if((++last)>=Capacity) last=0;
 		a[last]=e;// TODO Auto-generated method stub
-		
+		count++;		
 	}
 
 	@Override
@@ -31,15 +32,13 @@ public class QueueImplementByArray implements Queue{
 		if(front>=this.Capacity) front=0;
 		Object current=a[front];
 		a[front++]=null;
+		count--;
 		return current;
 	}
 
 	@Override
 	public int getsize() {
-		if(last>=0){// TODO Auto-generated method stub
-		return last-front+1;}
-		else
-		return 0;
+		return count;
 	}
 
 	@Override
@@ -67,9 +66,14 @@ public class QueueImplementByArray implements Queue{
 		//qba.enqueue(40);//队列溢出
 		System.out.println(qba.dequeue());
 		System.out.println(qba.dequeue());
-		System.out.println(qba.dequeue());
 		qba.enqueue(40);
+		qba.enqueue(50);
+		System.out.println(qba.getsize());
+		System.out.println(qba.dequeue());
+		
 		System.out.println(qba.front());
+		System.out.println(qba.dequeue());
+		System.out.println(qba.dequeue());
 		System.out.println(qba.dequeue());//队列溢出
 	}
 }

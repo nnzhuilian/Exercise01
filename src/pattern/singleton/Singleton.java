@@ -3,7 +3,7 @@ package pattern.singleton;
 class Singletone {//饿汉模式
 	private static Singletone s = new Singletone();//必须在这里实例化
 
-	private Singletone() {
+	private Singletone() {//必须把构造函数申明为私有
 	}
 
 	public static Singletone getSingleton() {
@@ -13,7 +13,7 @@ class Singletone {//饿汉模式
 
 class Singletonb {//饱汉模式
 	private String name;
-	private static Singletonb s;
+	private volatile static Singletonb s;
 
 	private Singletonb(String name) {
 		this.name = name;
@@ -30,6 +30,19 @@ class Singletonb {//饱汉模式
 		return s;
 	}
 }
+
+class Singletonclass{
+	private Singletonclass(){
+		
+	}
+	private static class single{
+		public static Singletonclass s1=new Singletonclass();
+	}
+	public static Singletonclass getsin(){
+		return single.s1;
+	}
+}
+
 class Singleton{
 	public static void main(String[] args) {
 		String name="hah";

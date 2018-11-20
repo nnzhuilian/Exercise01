@@ -1,6 +1,6 @@
 package Algorithm.Matrix;
 
-class FindIntegerInSortedMatrix1 {// 自己写的
+class FindIntegerInSortedMatrix1 {// 自己写的 pass
 	public boolean find(int[][] a, int b) {
 		if (a == null) {
 			return false;
@@ -23,7 +23,7 @@ class FindIntegerInSortedMatrix1 {// 自己写的
 	}
 }
 
-class FindIntegerInSortedMatrix2 {// 书上的
+class FindIntegerInSortedMatrix2 {// 书上的 pass
 	public static boolean find(int[][] array, int number) {
 		if (array == null) {
 			return false;

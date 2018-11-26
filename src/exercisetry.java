@@ -51,6 +51,7 @@ public class exercisetry {
 		// TODO Auto-generated method stub
 		int a[]={3,1,4,2,7,8,6,5};
 		sort(a);
+		System.out.println(1/1.25);
 	}
 
 }

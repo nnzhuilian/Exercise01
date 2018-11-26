@@ -10,8 +10,8 @@ public class Heapsort {
 		HeapInsert(a,i);//生成大根堆
 		}
 		for(int i=a.length-1;i>0;i--){
-			swap(a,i,0);
-			Heapify(a,0,i);
+			swap(a,i,0);//最后叶节点与堆顶交换
+			Heapify(a,0,i);//数组大小为i
 		}
 	}
 	public static void HeapInsert(int a[], int index) {//新节点加入到堆，同时往上调整的过程

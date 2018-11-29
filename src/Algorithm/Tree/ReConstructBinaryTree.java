@@ -1,12 +1,12 @@
 package Algorithm.Tree;
 
 //Definition for binary tree
-class TreeNode {
+/*class TreeNode {
      int val;
      TreeNode left;
      TreeNode right;
      TreeNode(int x) { val = x; }
- }
+ }*/
 
 public class ReConstructBinaryTree {
 	public TreeNode reConstructBinaryTree1(int [] pre,int [] in) {//×Ô¼ºÐ´µÄ

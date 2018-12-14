@@ -1,4 +1,4 @@
-package Algorithm.sortex;
+package Algorithm.Matrix;
 
 import java.util.TreeMap;
 

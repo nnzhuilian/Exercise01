@@ -23,7 +23,7 @@ public class FindGreatestSumOfSubArray {
 	        }
 	        return maxsum;
 	    }
-	 public static int FindGreatestSumOfSubArray(int[] array) {//优化代码
+	 public static int FindGreatestSumOfSubArray2(int[] array) {//优化代码
 	        if(array.length == 0)
 	            return 0;
 	        int cur = array[0], max = array[0];
@@ -37,6 +37,6 @@ public class FindGreatestSumOfSubArray {
 	 //也可用动态规划。
 	 public static void main(String[] args) {
 		int[] a={-3,-4,-1,-7,-2};
-		System.out.println(FindGreatestSumOfSubArray(a));
+		System.out.println(FindGreatestSumOfSubArray2(a));
 	}
 }

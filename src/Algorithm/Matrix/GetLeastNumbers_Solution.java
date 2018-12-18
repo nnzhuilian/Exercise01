@@ -118,7 +118,7 @@ public class GetLeastNumbers_Solution {
             return res;
         PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(k, new Comparator<Integer>() { 
             public int compare(Integer e1, Integer e2) {
-                return e2 - e1;
+                return e2 - e1;//×î´ó¶Ñ
             }
         });
         for(int i=0; i<input.length; i++){

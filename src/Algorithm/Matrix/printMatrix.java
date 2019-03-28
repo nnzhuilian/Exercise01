@@ -3,53 +3,40 @@ package Algorithm.Matrix;
 import java.util.ArrayList;
 
 public class printMatrix {
-
-	public ArrayList<Integer> printMatrix1(int[][] matrix) {
-		ArrayList<Integer> arr = new ArrayList<Integer>();
-		if (matrix.length == 0) {
-			return arr;
-		}
-		int start1 = 0;
-		int start2 = 0;
-		int end1 = matrix[0].length;
-		int end2 = matrix.length;
-		while (start1 < (end1 - 1) && start2 < (end2 - 1)) {
-			int i = start1;
-			int j = start2;
-			while (i < end1) {
-				arr.add(matrix[j][i++]);
-			}
-			i--;
-			j++;
-			while (j < end2) {
-				arr.add(matrix[j++][i]);
-			}
-			j--;
-			i--;
-			while (i >= start1) {
-				arr.add(matrix[j][i--]);
-			}
-			i++;
-			j--;
-			while (j > start2) {
-				arr.add(matrix[j--][i]);
-			}
-			start1++;
-			start2++;
-			end1--;
-			end2--;
-		}
-		if (start1 == (end1 - 1)) {
-			for (int j = start2; j < end2; j++) {
-				arr.add(matrix[j][start2]);
-			}
-		} else if (start2 == (end2 - 1)) {
-			for (int i = start1; i < end1; i++) {
-				arr.add(matrix[start2][i]);
-			}
-		}
-		return arr;
-	}
+	public ArrayList<Integer> printMatrix(int [][] matrix) {
+        ArrayList<Integer> arr=new ArrayList<Integer>();
+        if(matrix.length==0)
+          return arr;
+        int start1=0;
+        int start2=0;
+        int end1=matrix[0].length-1;
+        int end2=matrix.length-1;
+        while(start1<end1&&start2<end2){
+            int i=start1;
+            int j=start2;
+            while(i<end1)
+                arr.add(matrix[j][i++]);
+            while(j<end2)
+                arr.add(matrix[j++][i]);
+            while(i>start1)
+                arr.add(matrix[j][i--]);
+            while(j>start2)
+                arr.add(matrix[j--][i]);
+            start1++;
+            start2++;
+            end1--;
+            end2--;
+        }
+        if(start1==end1){
+            for(int i=start2;i<=end2;i++)
+                arr.add(matrix[i][start1]);
+        }
+        else if(start2==end2){
+            for(int i=start1;i<=end1;i++)
+                arr.add(matrix[start2][i]);
+        }
+        return arr;
+    }
 	
 	
 	public ArrayList<Integer> printMatrix2(int [][] matrix) {//±ê×¼´úÂë

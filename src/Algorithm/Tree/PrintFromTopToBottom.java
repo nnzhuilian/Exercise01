@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class PrintFromTopToBottom {// 使用队列实现
+	
 	public ArrayList<Integer> PrintFromTopToBottom1(TreeNode root) {
 		ArrayList<Integer> arr = new ArrayList<Integer>();
 		if (root == null) {

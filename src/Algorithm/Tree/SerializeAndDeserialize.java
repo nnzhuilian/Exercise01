@@ -76,4 +76,26 @@ public class SerializeAndDeserialize {
         node.right = pre(queue);
         return node;
     }
+    ////////////////////我的优化代码//////////////////
+    int i=-1;
+    String Serialize3(TreeNode root) {
+        if(root==null)
+            return "#,";
+        return String.valueOf(root.val+",")+Serialize3(root.left)+Serialize3(root.right);
+  }
+    TreeNode Deserialize3(String str) {
+       if(str==null||str.length()==0)
+           return null;
+       String strs[]=str.split(",");
+       return cons(strs);
+  }
+    TreeNode cons(String[] str){
+        i++;
+       if(str[i].equals("#"))
+           return null;
+        TreeNode troot=new TreeNode(Integer.parseInt(str[i]));
+        troot.left=cons(str);
+        troot.right=cons(str);
+        return troot;
+    }
 }

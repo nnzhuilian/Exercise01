@@ -32,6 +32,21 @@ public class MinNumberInRotateArray {
             return p;
         }
     }
+    public static int minNumberInRotateArray2(int[] array,int left,int right){
+        if(left>right)
+            return 0;
+        if(left==right)
+            return array[left];
+        int mid=(left+right)/2;
+        if(array[mid]>array[right]){
+            return minNumberInRotateArray(array,mid+1,right);
+        }else if(array[mid]<array[right]){
+            return minNumberInRotateArray(array,left,mid);
+        }else if(array[mid]==array[right]){
+            return minNumberInRotateArray(array,left,right-1);//绝不能--，会出错！！
+        }
+        return 0;
+    }
 /////////////////////////////-优化方案-循环实现，不需递归///////////////////////////
     public static int minNumberInRotateArray1(int [] array) {
     	int len = array.length;

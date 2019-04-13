@@ -21,7 +21,7 @@ public class Zheban {
 		}
 	}
 
-	public static int find(int a[], int b, int fp, int lp) {
+	public static int find(int a[], int b, int fp, int lp) {//уш╟К
 		int mid = (fp + lp) / 2;
 		if (lp < fp) {
 			return -1;

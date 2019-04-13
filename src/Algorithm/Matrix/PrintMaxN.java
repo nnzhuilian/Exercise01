@@ -1,13 +1,24 @@
 package Algorithm.Matrix;
 
 public class PrintMaxN {
-	public static void print1(int n,String k){
-		if(n<0){
-			System.out.println(k);
-			return;
-		}
+	public static void print1(int n,String s){
+		if(n<=0){
+    		int index=-1;
+    		for(int i=0;i<s.length();i++){
+    			if(s.charAt(i)!='0'){
+    				index=i;
+    				break;
+    			}	
+    		}
+    		if(index==-1){
+    			return;
+    		}
+    		s=s.substring(index);
+    		System.out.println(s);
+    		return;
+    	}
 		for(int i=0;i<10;i++){
-			String temp=k+i;
+			String temp=s+i;
 			print1(n-1,temp);
 		}
 	}

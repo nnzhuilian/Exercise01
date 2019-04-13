@@ -1,29 +1,49 @@
 package pattern.singleton;
 
-class Singletone {//饿汉模式
-	private static Singletone s = new Singletone();//必须在这里实例化
-
-	private Singletone() {//必须把构造函数申明为私有
+public class Singleton {
+	private static Singleton s=new Singleton();
+	private Singleton(){
+		
 	}
-
-	public static Singletone getSingleton() {
+	public static Singleton get(){
+		return s;
+	}
+}
+class Singleton1{//安全问题
+	private static Singleton1 s;
+	private Singleton1(){
+		
+	}
+	public static Singleton1 get(){
+		if(s==null){//在这里，两线程先判断后停住，同时创建
+			s=new Singleton1();
+		}
+		return s;
+	}
+}
+class Singleton2{
+	private static Singleton2 s;
+	private Singleton2(){
+		
+	}
+	public synchronized static Singleton2 get(){//产生大量锁争夺
+		if(s==null){
+			s=new Singleton2();
+		}
 		return s;
 	}
 }
 
-class Singletonb {//饱汉模式
-	private String name;
-	private volatile static Singletonb s;
-
-	private Singletonb(String name) {
-		this.name = name;
+class Singleton3{
+	private static Singleton3 s;//会有双重否定错误
+	private Singleton3(){
+		
 	}
-
-	public static Singletonb getSingleton(String name) {
-		if (s == null) {//效率，只要判断一次
-			synchronized ("lock") {//加锁，线程安全
-				if (s == null) {
-					s = new Singletonb(name);
+	public static Singleton3 get(){
+		if(s==null){//在这里判断的时候可能内存地址已经赋值了，但是还未初始化。
+			synchronized("lock"){
+				if(s==null){
+					s=new Singleton3();
 				}
 			}
 		}
@@ -31,26 +51,32 @@ class Singletonb {//饱汉模式
 	}
 }
 
-class Singletonclass{
-	private Singletonclass(){
+class Singleton4{
+	private volatile static Singleton4 s;
+	private Singleton4(){
 		
 	}
-	private static class single{
-		public static Singletonclass s1=new Singletonclass();
-	}
-	public static Singletonclass getsin(){
-		return single.s1;
+	public static Singleton4 get(){
+		if(s==null){
+			synchronized("lock"){
+				if(s==null){
+					s=new Singleton4();
+				}
+			}
+		}
+		return s;
 	}
 }
 
-class Singleton{
-	public static void main(String[] args) {
-		String name="hah";
-		Singletone se1=Singletone.getSingleton();
-		Singletone se2=Singletone.getSingleton();
-		Singletonb sb1=Singletonb.getSingleton(name);
-		Singletonb sb2=Singletonb.getSingleton(name);
-		System.out.println(se1==se2);
-		System.out.println(sb1==sb2);
+class Singleton5{
+	private Singleton5(){
+		
+	}
+	public static class sin{//注意static
+		public static Singleton5 s=new Singleton5();
+	}
+	
+	public static Singleton5 get(){
+		return sin.s;
 	}
 }

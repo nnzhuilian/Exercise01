@@ -73,7 +73,7 @@ class Singleton5{
 		
 	}
 	public static class sin{//×¢Òâstatic
-		public static Singleton5 s=new Singleton5();
+		private static Singleton5 s=new Singleton5();
 	}
 	
 	public static Singleton5 get(){

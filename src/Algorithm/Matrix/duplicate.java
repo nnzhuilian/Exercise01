@@ -64,7 +64,7 @@ public class duplicate {
     }
     
     public static void main(String[] args) {
-		int[] numbers={2,3,1,4,2,5,3};
+		int[] numbers={3,4,2,1,3};
 		int length=numbers.length;
 		int[] duplication=new int[1];
     	duplicate2(numbers, length, duplication);

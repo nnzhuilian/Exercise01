@@ -40,6 +40,25 @@ public class multiply {
         }
         return B;
     }
+    public int[] multiply3(int[] A) {
+        if(A==null||A.length==0)
+            return A;
+        int[] b1=new int[A.length];
+        int[] b2=new int[A.length];
+        b1[0]=1;
+        b2[A.length-1]=1;
+        for(int i=1;i<b1.length;i++){
+            b1[i]=b1[i-1]*A[i-1];
+        }
+        for(int i=b2.length-2;i>=0;i--){
+            b2[i]=b2[i+1]*A[i+1];
+        }
+        int[] B=new int[A.length];
+        for(int i=0;i<B.length;i++){
+            B[i]=b1[i]*b2[i];
+        }
+        return B;
+    }
 	public static void main(String[] args) {
 		int[] A=null;
 		System.out.println(A.length);
